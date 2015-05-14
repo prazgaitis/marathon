@@ -4,7 +4,7 @@
 <head>
     <title>2015 Chicago Marathon Training</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-        <link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
         <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
 </head>
@@ -15,128 +15,72 @@
     </div>
     <!-- Header -->
     <div class="header col-md-12 roboto">
-        <h1 class="heading3">Paul's Chicago Marathon Training</h1>
+        <h1>Paul's Chicago Marathon Training</h1>
     </div>
+
     <div class="container-fluid">
-        <div class="row">
-
-            <!-- Chart div -->
-            <div class="col-md-8 box">
-                <h3 class="roboto heading3">Run distance by day (miles)</h3>
-                  <div class="rectangle">
-                      <canvas id="myChart" width="300" height="100"></canvas>
-                      <br>
-                      <div>
-                          <span id="grey-key"></span><span class="roboto" >Average Pace (min / mi)</span>
-                          <br>
-                          <span id="orange-key"></span><span class="roboto">Distance (miles)</span>
-                      </div>
-                  </div>
-            </div>
-            <!-- Chart div -->
-
-            <div class="last-run col-md-3 box">
-                <h3 class="roboto heading3">Last Run</a></h3>
-                <table class="table roboto">
-                  <thead>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th class="table-border-orange">Distance</th>
-                        <td class="table-border-orange"><%= @last_run_distance.round(2) %> miles </td>
-                    </tr>
-                    <tr>
-                      <th class="table-border-orange">Pace</th>
-                        <td class="table-border-orange"><%= @last_run_pace_formatted %> min / mi</td>
-                    </tr>
-                    <tr>
-                      <th class="table-border-orange">Time</th>
-                        <td class="table-border-orange"><%= @last_run_time_formatted %></td>
-                    </tr>
-                    <tr>
-                      <th class="table-border-orange">Date</th>
-                        <td class="table-border-orange"><%= @last_run_start_time %></td>
-                    </tr>
-                    <tr>
-                      <th class="table-border-orange"></th>
-                        <td class="table-border-orange"></td>
-                    </tr>
-                  </tbody>
-                </table>
-            <h3 class="roboto heading3">% Complete Training:</h3>
-                  <br>
-                  <div id="example-percent-container" style="max-width: 200px;"></div>
-            </div>
+        <div class="col-md-8 box">
+        <h3 class="panel-title roboto">Run distance by day (miles)</h3>
+          <div class="rectangle">
+              <canvas id="myChart" width="300" height="100"></canvas>
+          </div>
         </div>
+
+        <div class="col-md-3 box">
+              <h3 class="panel-title roboto">% Complete Training:</h3>
+              <br>
+              <div id="example-percent-container" style="max-width: 200px;"></div>
+        </div>
+    </div>
 
     <!-- Dash content -->
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="roboto heading3" style="padding-bottom: 20px;">Overall Stats:</h3>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="roboto">
-                        <div class="col-md-3 stat">
-                          <span class="panel-title">Today's Run:</span>
-                          <span class="run-miles"><%= @todays_run %> mi</span>
-                        </div>
-                        <div class="col-md-3 stat">
-                          <span class="panel-title">Number of Runs:</span>
-                          <span class="run-miles"><%= @number_of_runs %></span>
-                        </div>
-                        <div class="col-md-3 stat">
-                          <span class="panel-title">Total Miles Ran:</span>
-                          <span class="run-miles" id="totalmiles"><%= @total_miles %></span>
-                        </div>
-                        <div class="col-md-3 stat">
-                          <span class="panel-title">Total Time Spent Running:</span>
-                          <span class="run-miles" id="totalmiles"><%= "#{@total_hours} hrs, #{@total_minutes} mins, #{@total_seconds} sec" %></span>
-                        </div>
-                        <div class="col-md-3 stat">
-                          <span class="panel-title">Average Pace:</span>
-                          <span class="run-miles" id="totalmiles"><%= "#{@average_pace_minutes}:#{@average_pace_seconds} / mile" %></span>
-                        </div>
-                        <div class="col-md-3 stat">
-                          <span class="panel-title">Time until Chicago Marathon:</span>
-                          <span class="run-miles" id="totaldays"><%= @weeks_until_race %> weeks, <%= @remainder_days_until_race %> days</span>
-                        </div>
-                        <div class="col-md-3 stat">
-                          <span class="panel-title">Last Run:</span>
-                          <span class="run-miles" id="totaldays"><%= @last_run_distance.round(2) %> mi</span>
-                        </div>
-                        <div class="col-md-3 stat">
-                          <span class="panel-title">Training miles left:</span>
-                          <span class="run-miles" id="totaldays"><%= (677 - @total_miles).round(2) %> mi</span>
-                        </div>
-                </div>
+    <div class="container-fluid gray roboto">
+          <div class="row">
+            <div class="col-md-3 box">
+              <span class="panel-title">Today's Run:</span>
+              <br>
+              <span class="run-miles"><%= @todays_run %> mi</span>
             </div>
+            <div class="col-md-3 box">
+              <span class="panel-title">Number of Runs:</span>
+              <br>
+              <span class="run-miles"><%= @number_of_runs %></span>
+            </div>
+            <div class="col-md-3 box">
+              <span class="panel-title">Total Miles Ran:</span>
+              <br>
+              <span class="run-miles" id="totalmiles"><%= @total_miles %></span>
+            </div>
+            <div class="col-md-3 box">
+              <span class="panel-title">Total Time Spent Running:</span>
+              <br>
+              <span class="run-miles" id="totalmiles"><%= "#{@total_hours} hrs, #{@total_minutes} mins #{@total_seconds} sec" %></span>
+            </div>
+            <div class="col-md-3 box">
+              <span class="panel-title">Average Pace:</span>
+              <br>
+              <span class="run-miles" id="totalmiles"><%= "#{@average_pace_minutes}:#{@average_pace_seconds} / mile" %></span>
+            </div>
+            <div class="col-md-3 box">
+              <span class="panel-title">Time until Chicago Marathon:</span>
+              <br>
+              <span class="run-miles" id="totaldays"><%= @weeks_until_race %> weeks, <%= @remainder_days_until_race %> days</span>
+            </div>
+            <div class="col-md-3 box">
+              <span class="panel-title">Last Run:</span>
+              <br>
+              <span class="run-miles" id="totaldays"><%= @last_run_distance.round(2) %> mi</span>
+            </div>
+            <div class="col-md-3 box">
+              <span class="panel-title">Training miles left:</span>
+              <br>
+              <span class="run-miles" id="totaldays"><%= (677 - @total_miles).round(2) %> mi</span>
+            </div> 
         </div>
+    </div>
 
-    <div class="col-md-12roboto">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-5">
-                <h3 class="roboto heading3">Today:</h3>
-                <span class='roboto'>
-                    I ran <span class="o";><%= @miles_ran_today %></span> miles today. The training plan calls for <span class="o";><%= @todays_run %></span>. Click here to <a id="tweet" class="o"></a> or <a class="o" id="tweet2"></a> me on my progress!
-                </span>
-            </div>
-            <div class="col-md-5">
-                <h3 class="roboto heading3">About this project</h3>
-                <span class='roboto'>
-                    I use the Nike+ iPhone app to track my runs. This dashboard pulls live data from my Nike+ account.
-                </span>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</body>
-    <footer>
-    <div class="footer-marathon col-md-12 roboto">
-        <h1></h1>
-    </div>
-    <script>
+
+<script>
     $(document).ready(function() {
         // Get the  current URL
         var pathname = window.location;
@@ -151,6 +95,19 @@
         $('#tweet2').append('<a id="mycustomtwitterbutton" href=" '+ congratstweet+' ">congratulate</a>')
     });
 </script>
+    <div class="col-md-10 add-margin roboto">
+        <h2>Today</h2>
+        <span class='roboto' style="font-size: 1.5em;">
+        I ran <span class="o";><%= @miles_ran_today %></span> miles today. The training plan calls for <span class="o";><%= @todays_run %></span>. Click here to <a id="tweet" class="o"></a> or <a class="o" id="tweet2"></a> me on my progress!
+        </span>
+        <h2>About this project</h2>
+        <span class='roboto' style="font-size: 1.5em;">
+        I use the Nike+ iPhone app to track my runs. This dashboard pulls live data from my Nike+ account.
+        </span>
+
+    </div>
+</body>
+    <footer>
         <script>
                 window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
         </script>

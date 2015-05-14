@@ -33,7 +33,7 @@ class PagesController < ApplicationController
 	def index
 	end
 
-	def marathon
+	def marathondev
 
 		def km_to_mi (km)
 			miles = km * 0.621371
@@ -243,7 +243,7 @@ class PagesController < ApplicationController
 
 
 
-	def marathon2
+	def marathon
 
 		def km_to_mi (km)
 			miles = km * 0.621371
