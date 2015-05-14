@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><% @title = "Paul Razgaitis | Welcome!" %></title>
+	<meta name="description" content="The site of Paul Razgaitis">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-social.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'></head>
+<body>
+
+<div class="container-fluid">
+
+	<div class="row">
+		<div class="header1">
+			<%= image_tag "logo.png", :class => "logo" %>
+			<div class="titles">
+				<h1>Paul Razgaitis</h1>
+				<h3>Web Developer | Chicago</h3>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="content">
+			<div class="left col-md-6">
+				<h2>About</h2>
+				<br>
+				<p>I work at <a class="h" href="http://www.braintreepayments.com">Braintree</a> in Chicago. Previously I worked at <a class="h" href="https://venmo.com">Venmo </a>and before that at <a class="slide h" href="https://www.theresumator.com">the Resumator </a>in Pittsburgh. Graduated from <a class="h" href="http://www.pitt.edu">Pitt.</a></p>
+			</div>
+
+			<div class="right col-md-6">
+				<h2>Projects</h2>
+				<br>
+				<p>I'm running the 2015 Chicago Marathon. Follow my training progress <%= link_to "here", marathon_path, :class => "h", :method => :get %>!</p>
+				<br>
+				<p>Recently, I made a new website for the <a class="h" href="http://pittlacrosse.com">Pitt Lacrosse Team</a>, an <a class="h" href="http://isgoff.com">office supply company,</a> and a <a class="h" href="http://tyropartners.com">financial services firm.</a> I am available for web and mobile app development. <a class="h" href="#">Let's get in touch!</a></p>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="footer">
+				<%= image_tag "jpeg.jpg", :class => "img-responsive photo" %>
+			</div>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

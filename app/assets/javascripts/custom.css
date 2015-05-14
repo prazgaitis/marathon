@@ -1,0 +1,186 @@
+
+    .header1 {
+        background-image: url('/assets/raz.jpg');
+        background-position: fixed;
+        width: 100%;
+        text-align: center;
+    }
+
+    .header {
+        background-color: white;
+        border-bottom: 2px solid #c8c8c8;
+        z-index: 1000;
+    }
+
+    h1, h2, h3 {
+        font-family: Roboto, sans-serif;
+    }
+
+    .container-fluid {
+        padding: 0px;
+        background-color: #efefef;
+    }
+
+    .progressbar-text {
+        font-family: 'Roboto', sans-serif;
+        font-size: 3em;
+    }
+    .menu {
+        background-color: black;
+    }
+
+    .dashboard {
+        background-color: #efefef;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+
+    }
+    .box {
+        background-color: white;
+        margin: 0px auto;
+        padding: 10px;
+    }
+
+    .rectangle {
+        background-color: white;
+        max-height: 400px;
+        margin: 10px;
+    }
+
+    .run-miles {
+        font-size: 2em;
+        color: #FCB03C;
+        display: block;
+        text-align: center;
+    }
+
+    .run-miles-inline {
+        display: inline-block;
+    }
+
+    .panel-title {
+        display: block;
+        text-align: center;
+    }
+
+    #example-percent-container {
+        margin: auto;
+    }
+
+
+    .submitbutton {
+        border: 1px dotted #3e3c42 !important;
+        background: #ffdd8a;
+        border-radius: 0px;
+        padding: 8px 24px !important;
+        font-family: 'Source Code Pro', Courier;
+
+    }
+    .submitbutton:hover {
+        border: 1px solid #3e3c42 !important;
+        background: #ffdd8a;
+        border-radius: 0px;
+        padding: 8px 24px !important;
+        font-family: 'Source Code Pro', Courier;
+
+    }
+
+    .bt {
+        font-family: 'Source Code Pro', Courier;
+    }
+    .bt-success{
+        font-family: 'Source Code Pro', Courier;
+        color: green;
+    }
+
+    .bt-fail{
+        font-family: 'Source Code Pro', Courier;
+        color: maroon;
+    }
+
+    .roboto {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+    }
+
+    .progressbar-text {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+    }
+
+    h1.bt {
+        padding-bottom: 10px;
+    }
+
+    .logo {
+        max-width: 300px;
+        text-align: center;
+        margin: auto;
+    }
+
+
+    /*==========  Mobile First Method  ==========*/
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) {
+        .ditka {
+            margin: auto;
+            max-height: 70px;
+        }
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) {
+        .ditka {
+            margin: auto;
+            max-height: 70px;
+        }
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+        .ditka {
+            margin: auto;
+            max-height: 70px;
+            padding-right: 10px;
+        }
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+        #myChart {
+            max-height: 410px;
+        }
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+
+    }
+
+    /*==========  Non-Mobile First Method  ==========*/
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+
+        
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (max-width : 480px) {
+
+    }
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (max-width : 320px) {
+
+    }

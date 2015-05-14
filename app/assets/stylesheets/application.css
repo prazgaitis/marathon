@@ -1,0 +1,380 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.header1 {
+	background-color: #309154;
+	width: 100%;
+	text-align: center;
+	border-bottom: 4px solid #cccccc;
+}
+
+h1 {
+	font-size: 4em;
+}
+
+a.h {
+	color: #309154;
+	text-decoration: none;
+}
+
+a.h:hover {
+	color: #309154;
+	text-decoration: none;
+	border-bottom: 1px solid #309154;
+  }
+
+.header1 h1, .header1 h2, .header1 h3,h4,h5 {
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+.content h1,h2,h3,h4,h5 {
+	color: black;
+}
+
+.content {
+	font-size: 1.7em;
+}
+
+
+.right, .left {
+	padding: 5%;
+}
+
+.logo {
+	margin: auto;
+	max-width: 285px;
+}
+
+.titles {
+	padding-bottom: 2%;
+}
+
+.flag {
+	height: 30px;
+}
+
+.footer {
+	bottom: 0px;
+	width: 100%;
+}
+
+.photo {
+	margin: 0 auto;
+	vertical-align: -20px;
+	bottom: 0;
+}
+
+
+/* -- marathon page --*/
+
+
+    .footer-marathon {
+        width: 100%;
+        text-align: center;
+        background-color: #FCB03C;
+    }
+
+    .header {
+        background-color: white;
+        border-bottom: 3px solid #efefef;
+        z-index: 1000;
+    }
+
+    #grey-key {
+    	width: 20px;
+    	height: 20px;
+    	background-color: #efefef;
+    	display: inline-block;
+    	margin-right: 7px;
+    	margin-left: 15px;
+    }
+
+    #orange-key {
+    	width: 20px;
+    	height: 20px;
+    	background-color: #FCB03C;
+    	display: inline-block;
+    	margin-right: 7px;
+    	margin-left: 15px;
+    }
+
+    h1 {
+        font-family: Roboto, sans-serif;
+    }
+
+    h2 {
+        font-family: Roboto, sans-serif;
+    }
+
+    .table-border-orange {
+    	border-top: 1px solid #FCB03C !important;
+    }
+
+    .gray {
+    	background-color: #efefef;	
+    }
+
+    .progressbar-text {
+        font-family: 'Roboto', sans-serif;
+        font-size: 3em;
+    }
+    .menu {
+        background-color: black;
+    }
+
+    .dashboard {
+        background-color: #efefef;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+
+    }
+    .box {
+        background-color: white;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .stat {
+    	/*border: 1px solid #FCB03C;*/
+    	padding-bottom: 20px;
+    }
+
+    .rectangle {
+        background-color: white;
+        max-height: 400px;
+        margin: 10px;
+    }
+
+    .run-miles {
+        font-size: 2em;
+        color: #FCB03C;
+        display: block;
+        text-align: center;
+    }
+
+    .run-miles-inline {
+        display: inline-block;
+    }
+
+    .panel-title {
+        display: block;
+        text-align: center;
+    }
+
+    #example-percent-container {
+        margin: auto;
+    }
+
+    .o {
+    	font-style: bold; 
+    	font-size: 1.2em; 
+    	color: #FCB03C;
+    }
+
+    a.o {
+    	font-style: bold;  
+    	font-color: #FCB03C;
+    	text-decoration: none;
+    }
+
+    a.o:hover {
+    	font-style: bold; 
+    	color: #FCB03C;
+    	text-decoration: none;
+    }
+
+
+    .submitbutton {
+        border: 1px dotted #3e3c42 !important;
+        background: #ffdd8a;
+        border-radius: 0px;
+        padding: 8px 24px !important;
+        font-family: 'Source Code Pro', Courier;
+
+    }
+    .submitbutton:hover {
+        border: 1px solid #3e3c42 !important;
+        background: #ffdd8a;
+        border-radius: 0px;
+        padding: 8px 24px !important;
+        font-family: 'Source Code Pro', Courier;
+
+    }
+
+    .bt {
+        font-family: 'Source Code Pro', Courier;
+    }
+    .bt-success{
+        font-family: 'Source Code Pro', Courier;
+        color: green;
+    }
+
+    .bt-fail{
+        font-family: 'Source Code Pro', Courier;
+        color: maroon;
+    }
+
+    .roboto {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+    }
+
+    .progressbar-text {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+    }
+
+    h1.bt {
+        padding-bottom: 10px;
+    }
+
+    .logo {
+        max-width: 300px;
+        text-align: center;
+        margin: auto;
+    }
+
+    .formfield {
+        color: grey;
+        display: block;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+        height: 30px;
+        font-size: 16px;
+        margin: 16px 0 0 0;
+        padding: 0 14px;
+        outline: none;
+        background-color: transparent;
+        width: 100%;
+        line-height: normal;
+        border-top-style: none;
+        border-right-style: none;
+        border-bottom-style: none;
+        border-left-style: none;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .formfield:focus {
+        color: black;
+    }
+
+    .formlabel {
+        border-top: solid 1px #dee2e5;
+/*        border-bottom: solid 1px #dee2e5;
+*/        margin-top: -1px;
+        margin-bottom: -1px;
+        position: relative;
+        overflow: hidden;
+        display: block;
+        padding: 8px 0;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .formlabel-no-border {
+        /*border-top: solid 1px #dee2e5;*/
+        /*border-bottom: solid 1px #dee2e5;*/
+        margin-top: -1px;
+        margin-bottom: -1px;
+        position: relative;
+        overflow: hidden;
+        display: block;
+        padding: 8px 0;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .formlabel:active, .formlabel:focus {
+        background-color: #f7f7f7;
+    }
+
+    /*==========  Mobile First Method  ==========*/
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) {
+        .ditka {
+            margin: auto;
+            max-height: 70px;
+        }
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) {
+        .ditka {
+            margin: auto;
+            max-height: 70px;
+        }
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+        .ditka {
+            margin: auto;
+            max-height: 70px;
+            padding-right: 10px;
+        }
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+        #myChart {
+            max-height: 410px;
+        }
+            .add-margin {
+	    	padding: 0 15%;
+	    }
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+    	    .add-margin {
+		    	padding: 0 15%;
+		    }
+    }
+
+    /*==========  Non-Mobile First Method  ==========*/
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+    	.heading3 {
+    		text-align: center;
+    	}
+        
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (max-width : 480px) {
+
+    }
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (max-width : 320px) {
+
+    }
+
