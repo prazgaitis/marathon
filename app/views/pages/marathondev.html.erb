@@ -74,7 +74,7 @@
             <div class="col-md-3 box">
               <span class="panel-title">Training miles left:</span>
               <br>
-              <span class="run-miles" id="totaldays"><%= (677 - @total_miles).round(2) %> mi</span>
+              <span class="run-miles" id="totaldays"><%= (@goal_miles - @total_miles).round(2) %> mi</span>
             </div> 
         </div>
     </div>
@@ -104,8 +104,39 @@
         <span class='roboto' style="font-size: 1.5em;">
         I use the Nike+ iPhone app to track my runs. This dashboard pulls live data from my Nike+ account.
         </span>
-
     </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-6">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Week</th>
+                  <th>Day</th>
+                  <th>Run Distance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% i = 1 %>
+                <% w = 1 %>
+                <% @runs_array.each do |run| %>
+                    <tr>
+                      <td><%= w %></td>
+                      <td><%= i %></td>
+                      <td><%= run %></td>
+                    </tr>
+                    <% if i % 7 == 0 %>
+                        <% w += 1 %>
+                    <% end %>
+                    <% i += 1 %>
+                <% end %>
+              </tbody>
+            </table>
+        </div>
+    </div>
+        
+
+
 </body>
     <footer>
         <script>

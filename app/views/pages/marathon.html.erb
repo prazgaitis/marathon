@@ -109,7 +109,19 @@
                           <span class="panel-title">Training miles left:</span>
                           <span class="run-miles" id="totaldays"><%= (677 - @total_miles).round(2) %> mi</span>
                         </div>
+                        <div class="col-md-3 col-md-4 col-xs-6 stat">
+                          <span class="panel-title">Predicted Marathon time:</span>
+                          <span class="run-miles" id="totaldays"><%= "#{@marathon_pace_hours} hrs, #{@marathon_pace_minutes} minutes, #{@marathon_pace_seconds} seconds" %></span>
+                        </div>
                 </div>
+    </div>
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-md-12">
+            <h2 class="roboto heading3" style="padding-bottom: 20px; text-align: center; margin-top: 0px;">Help me stay accountable!</h2>
+            <p class="roboto center">
+                I ran <span class="o";> <%= @miles_ran_today %> </span> miles today. The training plan calls for <span class="o";> <%= @todays_run %></span>. Click here to <a id="tweet" class="red"></a> or <a class="green" id="tweet2"></a> me on my progress!
+            </p>
+        </div>
     </div>
 
 
@@ -151,8 +163,8 @@
 
      
         // Place the text on the page. Change body to wherever you want the button placed. 
-        $('#tweet').append('<a id="mycustomtwitterbutton" href=" '+ shametweet+' ">shame</a>')
-        $('#tweet2').append('<a id="mycustomtwitterbutton" href=" '+ congratstweet+' ">congratulate</a>')
+        $('#tweet').append('<a id="mycustomtwitterbutton" class="o" href=" '+ shametweet+' ">shame</a>')
+        $('#tweet2').append('<a id="mycustomtwitterbutton" class="o" href=" '+ congratstweet+' ">congratulate</a>')
     });
 </script>
         <script>

@@ -6,6 +6,9 @@ gem 'rails', '4.1.8'
 # Use PostgreSQL as the database for Active Record
 gem 'pg'
 gem 'rails_12factor'
+gem 'mail_form'
+gem 'simple_form'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

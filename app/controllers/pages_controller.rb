@@ -2,6 +2,26 @@ require 'open-uri'
 require 'chronic_duration'
 
 class PagesController < ApplicationController
+	
+	  class ContactForm < MailForm::Base
+	  attribute :name,      :validate => true
+	  attribute :email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
+	  attribute :file,      :attachment => true
+
+	  attribute :message
+	  attribute :nickname,  :captcha  => true
+
+	  # Declare the e-mail headers. It accepts anything the mail method
+	  # in ActionMailer accepts.
+	  def headers
+	    {
+	      :subject => "My Contact Form",
+	      :to => "paul.razgaitis@braintreepayments.com",
+	      :from => %("#{name}" <#{email}>)
+	    }
+	  end
+	end
+
 
 
 	BEGINNER = {
@@ -35,17 +55,41 @@ class PagesController < ApplicationController
 
 	def marathondev
 
+		@runs_array = [ 	
+			3.0, 5.0, 3.0, 0.0, 3.0, 5.0, 0.0,
+			3.0, 5.0, 3.0, 0.0, 3.0, 6.0, 0.0,
+			4.0, 3.8, 4.0, 0.0, 2.0, 3.0, 0.0,
+			0.0, 5.0, 4.0, 0.0, 4.0, 6.0, 0.0,
+			4.0, 6.0, 4.0, 0.0, 4.0, 7.0, 0.0,
+			4.0, 6.0, 4.0, 0.0, 4.0, 6.0, 0.0,
+			4.0, 5.0, 3.0, 0.0, 2.0, 6.2, 0.0,
+			3.0, 5.0, 3.0, 0.0, 3.0, 6.2, 0.0,
+			3.0, 6.0, 3.0, 0.0, 3.0, 8.0, 0.0,
+			4.0, 6.0, 4.0, 0.0, 4.0, 10.0, 0.0,
+			4.0, 7.0, 4.0, 0.0, 5.0, 10.0, 0.0,
+			4.0, 7.0, 5.0, 0.0, 5.0, 11.0, 0.0,
+			5.0, 7.0, 5.0, 0.0, 5.0, 12.0, 0.0,
+			5.0, 3.3, 5.0, 0.0, 5.0, 14.0, 0.0,
+			4.0, 8.0, 0.0, 4.0, 0.0, 2.0, 13.0,
+			0.0, 0.0, 5.0, 0.0, 5.0, 14.0, 0.0,
+			5.0, 8.0, 5.0, 0.0, 5.0, 16.0, 0.0,
+			5.0, 3.3, 5.0, 0.0, 5.0, 18.0, 0.0,
+			5.0, 8.0, 5.0, 0.0, 5.0, 20.0, 0.0,
+			5.0, 12.0, 5.0, 0.0, 5.0, 22.0, 0.0,
+			0.0, 10.0, 5.0, 0.0, 4.0, 16.0, 0.0,
+			4.0, 3.3, 5.0, 0.0, 4.0, 12.0, 0.0,
+			4.0, 9.0, 3.0, 5.0, 0.0, 2.0, 26 
+		]
+
+		@goal_miles = @runs_array.inject{|sum, x| sum + x}
+
 		def km_to_mi (km)
 			miles = km * 0.621371
 		end
 
 		def percent_complete_training (total_miles, goal_miles)
-			@percent_complete = total_miles / 667
+			@percent_complete = total_miles / goal_miles
 		end
-
-		#@greeting = greetings.shuffle[0]
-		#@firstname = params[:firstname]
-		#@phonenumber = params[:phonenumber]
 
 		#start_date_string = params[:start_date]
 		start_date_string = "2015-05-04"
@@ -55,20 +99,28 @@ class PagesController < ApplicationController
 		@todays_date = Date.today
 
 
-		def plan_position_calculator todays_date, plan_start_date
-			days_elapsed = todays_date - plan_start_date #calculate span in days
-			@overall_position = days_elapsed.to_i + 1 #difference in days
-			@week_position = (days_elapsed.to_i / 7) + 1
-			@day_position = ((days_elapsed.to_i) % 7)
+		puts "Goal miles: #{@goal_miles}"
 
-			puts "THIS IS THE position on the chart: #{@overall_position}"
+		def plan_position_calculator todays_date, plan_start_date, runs_array
+			days_elapsed = todays_date - plan_start_date #calculate span in days
+			@overall_position = days_elapsed.to_i
+			@week_position = (days_elapsed.to_i / 7) + 1
+			@day_position = ((days_elapsed.to_i) % 7) + 1
+
+			puts "THIS IS THE position in the array: #{@overall_position}"
 			puts "THIS IS THE week: #{@week_position}"
 			puts "THIS IS THE day: #{@day_position}"
 
-			@todays_run = BEGINNER[@week_position][@day_position]
+			@todays_run = @runs_array[@overall_position]
 		end
 
-		plan_position_calculator @todays_date, @start_date
+		plan_position_calculator @todays_date, @start_date, @runs_array
+
+		puts "today's run is: #{@runs_array[@overall_position]}"
+		puts "tomorrow's run is: #{@runs_array[@overall_position + 1]}"
+		puts "the next seven runs are: #{@runs_array[@overall_position, 7]}"
+
+		@nextsevendays = @runs_array[@overall_position, 7].each{|run| puts "#{run} miles to go"}
 
 
 		@time_now = Time.now
@@ -98,6 +150,7 @@ class PagesController < ApplicationController
 
 		url = "#{base}#{end_date_param}#{start_date_param}&#{access_token}#{count}"
 		puts url
+		# => https://api.nike.com/me/sport/activities?endDate=2015-05-20&startDate=2015-05-04&access_token=lJTUBeEeSeeLBncuWWYWKT03BRG2&count=200
 		data = Nokogiri::HTML(open(url))
 
 		parsed = JSON.parse(data)
@@ -148,6 +201,12 @@ class PagesController < ApplicationController
 		@average_pace_minutes = (@average_pace / 60).floor
 		@average_pace_seconds = (@average_pace % 60).floor
 
+		#predicted marathon time
+		@marathon_time = @average_pace * 26.2
+		@marathon_pace_minutes = (@marathon_time / 60).floor
+		@marathon_pace_seconds = (@marathon_time % 60).floor
+
+
 		# LAST RUN
 		# Reasoning: usually the last activity will be a run. If not, the second to last one will be.
 
@@ -193,7 +252,7 @@ class PagesController < ApplicationController
 
 		
 
-		percent_complete_training(@total_miles, BEGINNER)
+		percent_complete_training(@total_miles, @goal_miles)
 
 		# Public Shaming section
 		@last_run_parsed = Date.parse(@last_run_start_time)
@@ -221,7 +280,18 @@ class PagesController < ApplicationController
 		puts "miles ran today: #{@miles_ran_today}"
 	end
 
+
+
 	### ========= layout 2 ========= ###
+
+
+
+
+
+
+
+
+
 
 
 
@@ -358,6 +428,14 @@ class PagesController < ApplicationController
 		@average_pace_minutes = (@average_pace / 60).floor
 		@average_pace_seconds = (@average_pace % 60).floor
 
+		puts "TOTAL DURATION: #{@total_duration}"
+		#predicted marathon time
+		@marathon_time = @average_pace * 26.2
+		@marathon_pace_seconds = (@marathon_time % 60).floor
+		@marathon_pace_minutes = ((@marathon_time / 60) % 60).ceil
+		@marathon_pace_hours = (@marathon_time / 3600).floor
+		
+
 		# LAST RUN
 		# Reasoning: usually the last activity will be a run. If not, the second to last one will be.
 
@@ -423,6 +501,8 @@ class PagesController < ApplicationController
 		# Public Shaming section
 		@last_run_parsed = Date.parse(@last_run_start_time)
 
+		puts "LAST RUN START TIME ======================>>>>> #{@last_run_parsed}"
+
 
 		# Do I need to run today?
 
@@ -442,6 +522,10 @@ class PagesController < ApplicationController
 			running_required = false
 			puts "today is not a running day"
 		end
+
+	if @miles_ran_today == 0
+		@miles_ran_today = "0"
+	end
 
 		puts "miles ran today: #{@miles_ran_today}"
 	end

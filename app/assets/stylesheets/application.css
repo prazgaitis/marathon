@@ -19,6 +19,11 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+.center {
+    text-align: center;
+    font-size: 1.5em;
+}
+
 .header1 {
 	background-color: #309154;
 	width: 100%;
@@ -213,6 +218,14 @@ a.h:hover {
         margin: auto;
     }
 
+    .red {
+        color: red;
+    }
+
+    .green {
+        color: green;
+    }
+
     .o {
     	font-style: bold; 
     	font-size: 1.2em; 
@@ -338,19 +351,10 @@ a.h:hover {
 
     /* Custom, iPhone Retina */ 
     @media only screen and (min-width : 320px) {
-        .ditka {
-            margin: auto;
-            max-height: 70px;
-        }
-    }
+
 
     /* Extra Small Devices, Phones */ 
     @media only screen and (min-width : 480px) {
-        .ditka {
-            margin: auto;
-            max-height: 70px;
-        }
-    }
 
     /* Small Devices, Tablets */
     @media only screen and (min-width : 768px) {
